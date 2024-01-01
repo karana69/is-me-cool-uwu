@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin-top: 100px;
+        }
+        #question {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #yes, #no {
+            font-size: 18px;
+            padding: 10px 20px;
+            margin: 10px;
+            cursor: pointer;
+            border: 1px solid #333;
+            border-radius: 5px;
+            background-color: #f0f0f0;
+        }
+        #no:hover {
+            animation: moveAway 1s ease infinite alternate;
+        }
+        @keyframes moveAway {
+            0% {
+                transform: translateX(0) translateY(0);
+            }
+            100% {
+                transform: translateX(calc(100vw - 150px)) translateY(calc(100vh - 150px));
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="question">Am I cool?</div>
+    <button id="yes" onclick="showMessage('Thank you! You are cool too!')">Yes</button>
+    <button id="no" onclick="moveNoAway()">No</button>
+
+    <script>
+        function showMessage(message) {
+            alert(message);
+        }
+
+        function moveNoAway() {
+            var noButton = document.getElementById('no');
+            noButton.style.display = 'none';
+            setTimeout(function() {
+                noButton.style.display = 'inline-block';
+            }, 1000); // Reappear after 1 second
+        }
+    </script>
+</body>
+</html>
+
